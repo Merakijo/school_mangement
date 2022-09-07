@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row center sign-up-form">
+    <div class="col s12 m12 l12">
+      <div class="card-panel">
+        <h3 class="header"><%= @student.new_record? ? "Sign up!" : "Edit your profile" %></h3>
+        <div class="row">
+          <%= form_for(@student, html: {class: "col s12"}) do |f| %>
+            <div class="row">
+              <div class="input-field col s12">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, placeholder: "Enter you first name", autofocus: true %>
+            
+                
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <%= f.label :last_name %>  
+                <%= f.text_field :last_name, placeholder: "Enter your last address" %>
+              </div>
+            </div>
+
+            
+
+             <div class="row">
+              <div class="input-field col s12">
+                <%= f.label :Address %>  
+                <%= f.text_field :address, placeholder: "Enter your address" %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <%= f.label :mobile_no %>  
+                <%= f.text_field :mobile_no, placeholder: "Enter your mobile number" %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <%= f.label :password %>  
+                <%= f.password_field :password, placeholder: "Choose a password" %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <%= f.label :password_confirmation %>  
+                <%= f.password_field :password_confirmation, placeholder: "Confirm a password" %>
+              </div>
+            </div>
+
+            
+
+                    
+            <div class="row">
+                Standard: 
+                  <%=f.fields_for :standards_student_attributes do|s| %>
+                    <%= s.collection_select :standard_id, Standard.all, :id, :name %>
+                  <% end %>
+
+            </div>
+           
+            <div class="row">
+              <div class="input-field col s12">
+                <%= f.button "Sign Up"%> 
+              </div>
+            </div>
+            
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

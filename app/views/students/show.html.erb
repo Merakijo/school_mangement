@@ -1,0 +1,23 @@
+<h1>Show</h1>
+
+<div class="row sign-up-form">
+	<div class="col s6 m6">
+	  <div class="card blue-grey darken-1">
+	        <div class="card-content white-text">
+	          <span class="card-title">Name: <%= @student.first_name%><%= @student.last_name%></span>
+	           <p>Address: <%= @student.address %></p>
+	           <p>Mobile number: <%= @student.mobile_no %></p>
+	           <p>Standard: <%= @student.standard%> </p>
+	          		         	 
+	        </div>
+	        
+	  </div>
+	  
+	  
+	  <%= link_to 'Edit your profile', edit_student_path(@student), class: "waves-effect waves-light btn" %>
+
+	  <%= link_to "logout", logout_path, method: :delete %>
+	  
+
+	</div>
+</div>

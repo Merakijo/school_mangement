@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_02_092226) do
+ActiveRecord::Schema.define(version: 2022_09_07_143820) do
+
+  create_table "blood_groups", force: :cascade do |t|
+    t.string "group"
+  end
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
@@ -46,7 +50,7 @@ ActiveRecord::Schema.define(version: 2022_09_02_092226) do
   end
 
   create_table "standards", force: :cascade do |t|
-    t.string "standard"
+    t.string "name"
   end
 
   create_table "standards_students", id: false, force: :cascade do |t|
@@ -62,6 +66,8 @@ ActiveRecord::Schema.define(version: 2022_09_02_092226) do
     t.integer "fee_status", default: 0
     t.integer "mobile_no"
     t.boolean "status", default: true
+    t.string "password_digest"
+    t.integer "blood_group_id"
     t.index ["mobile_no"], name: "index_students_on_mobile_no", unique: true
   end
 
@@ -89,6 +95,8 @@ ActiveRecord::Schema.define(version: 2022_09_02_092226) do
     t.string "first_name"
     t.string "last_name"
     t.string "department"
+    t.integer "mobile_no"
+    t.string "password_digest"
   end
 
   create_table "years", force: :cascade do |t|

@@ -8,4 +8,8 @@ class SubjectsController < ApplicationController
 		subject = Subject.find(params[:id])
 		render json: subject
 	end
+
+	def new
+		
+	end
 end

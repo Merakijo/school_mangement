@@ -1,0 +1,26 @@
+<div class="row">
+  <% @teachers.each do |teacher| %>
+      <div class="col s6 m6">
+        <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Name: <%= teacher.first_name %> <%= teacher.last_name %></span>
+               
+             
+            </div>
+            <div class="card-action">
+              
+             
+                <%= link_to "View Profile", teacher_path(teacher) %>
+            </div>
+
+          
+        </div>
+
+      </div>
+    <% end %>
+
+     <div class="container">
+      <div class="row">
+              <%= link_to "New_Teacher", new_teacher_path, class: "btn btn-outline-info" %>
+            </div>
+            </div>
